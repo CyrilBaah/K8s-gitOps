@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: solar-system
-        image: cyrilbaah/solar-system:v1
+        image: cyrilbaah/solar-system:v2
         resources:
           limits:
             memory: "1.5Gi"
