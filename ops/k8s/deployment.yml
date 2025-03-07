@@ -1,0 +1,30 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: solar-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: solar-system
+  template:
+    metadata:
+      labels:
+        app: solar-system
+    spec:
+      containers:
+      - name: solar-system
+        image: cyrilbaah/solar-system:v1
+        resources:
+          limits:
+            memory: "1.5Gi"
+            cpu: "1"
+          requests:
+            memory: "600Mi"
+            cpu: "750m"
+        ports:
+          - containerPort: 3000
+          
+              
+        

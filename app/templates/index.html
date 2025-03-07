@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("static/images/background.gif");
+            text-align: center;
+            padding: 20px;
+        }
+        .planet {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            position: relative; /* Ensure relative positioning for absolute child */
+        }
+        .planet img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .planet-info {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: left;
+            z-index: 1;
+        }
+        .planet:hover .planet-info {
+            display: block;
+        }
+        .planet h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .planet p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: white;">Planets Information</h1>
+    <div id="planets"></div>
+
+    <script>
+        const planets = [
+            { name: "Mercury", id: 1, description: "Closest to the sun", image: "static/images/mercury.png", velocity: "47.87 km/s", distance: "57.91 million km" },
+            { name: "Venus", id: 2, description: "Second planet", image: "static/images/venus.png", velocity: "35.02 km/s", distance: "108.2 million km" },
+            { name: "Earth", id: 3, description: "Our planet", image: "static/images/earth.png", velocity: "29.78 km/s", distance: "149.6 million km" },
+            { name: "Mars", id: 4, description: "The red planet", image: "static/images/mars.png", velocity: "24.07 km/s", distance: "227.9 million km" },
+            { name: "Jupiter", id: 5, description: "Largest planet", image: "static/images/jupiter.png", velocity: "13.07 km/s", distance: "778.5 million km" },
+            { name: "Saturn", id: 6, description: "Ringed planet", image: "static/images/saturn.png", velocity: "9.69 km/s", distance: "1.434 billion km" },
+            { name: "Uranus", id: 7, description: "Ice giant", image: "static/images/uranus.png", velocity: "6.81 km/s", distance: "2.871 billion km" },
+            { name: "Neptune", id: 8, description: "Furthest planet", image: "static/images/neptune.png", velocity: "5.43 km/s", distance: "4.495 billion km" },
+            { name: "Sun", id: 0, description: "Our star", image: "static/images/sun.png", velocity: "220 km/s", distance: "0 km" }
+        ];
+
+        const container = document.getElementById('planets');
+        planets.forEach(planet => {
+            const div = document.createElement('div');
+            div.className = 'planet';
+            div.innerHTML = `
+                <img src="${planet.image}" alt="${planet.name}"aaa>
+                <div class="planet-info">
+                    <h2>${planet.name}</h2>
+                    <p>${planet.description}</p>
+                    <p>Velocity: ${planet.velocity}</p>
+                    <p>Distance: ${planet.distance}</p>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
