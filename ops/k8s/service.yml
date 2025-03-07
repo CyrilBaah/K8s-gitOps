@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: solar-system
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: solar-system
   ports:
